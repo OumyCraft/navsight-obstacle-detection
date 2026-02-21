@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Project outputs (generated files)
+detection_obstacle/output/annotated_images/
+detection_obstacle/output/json/
+
+# Heavy local model cache
+ressources/models/
+
+# Optional local assets
+detection_obstacle/audio/*.mp3
+detection_obstacle/audio/*.wav

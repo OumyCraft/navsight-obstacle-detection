@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavSight</title>
+    <link rel='stylesheet' href='/assets/css/holographic_viewer.css'>
+
+</head>
+<body>
+    <div id="background"></div>
+    <canvas id="three-canvas"></canvas>
+
+    <div id="title">
+        <span>◢</span>
+        <span>NavSight-Holo-View</span>
+        <span>◣</span>
+    </div>
+
+    <div id="loading">
+        <div class="loader">
+            <span></span>
+            <div class="dot" id="dot-1"></div>
+            <div class="dot" id="dot-2"></div>
+            <div class="dot" id="dot-3"></div>
+            <div class="dot" id="dot-4"></div>
+            <div class="dot" id="dot-5"></div>
+        </div>
+        <div class="loading-text">CHARGEMENT MODÈLES 3D...</div>
+        <div class="loading-progress" id="loading-progress">Initialisation...</div>
+    </div>
+
+    <div id="audio-control" title="Activer/Désactiver la musique">🔊</div>
+    
+    <audio id="background-music" loop>
+        <source src="/audio/Silksong.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="holo-button-container">
+        <input class="holo-checkbox-input" id="holo-check" type="checkbox" />
+        <label class="holo-checkbox" for="holo-check">
+            <div class="holo-box">
+                <div class="holo-inner"></div>
+                <div class="scan-effect"></div>
+                <div class="holo-particles">
+                    <div class="holo-particle"></div>
+                    <div class="holo-particle"></div>
+                    <div class="holo-particle"></div>
+                    <div class="holo-particle"></div>
+                    <div class="holo-particle"></div>
+                    <div class="holo-particle"></div>
+                </div>
+                <div class="activation-rings">
+                    <div class="activation-ring"></div>
+                    <div class="activation-ring"></div>
+                    <div class="activation-ring"></div>
+                </div>
+                <div class="cube-transform">
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                    <div class="cube-face"></div>
+                </div>
+            </div>
+            <div class="corner-accent"></div>
+            <div class="corner-accent"></div>
+            <div class="corner-accent"></div>
+            <div class="corner-accent"></div>
+            <div class="holo-glow"></div>
+        </label>
+    </div>
+
+    <div id="image-list">
+        <h3>▸ BASE DE DONNÉES</h3>
+        <div id="loading-images">Chargement images...</div>
+    </div>
+
+    <div id="detection-overlay">
+        <img id="detection-image" alt="Détection">
+        <canvas id="detection-canvas"></canvas>
+    </div>
+
+    <!-- Conteneur de notifications -->
+    <div id="notifications-container"></div>
+
+    <div id="stats-panel">
+        <div style="border-bottom: 2px solid #0ff; margin-bottom: 15px; padding-bottom: 10px; font-size: 1.1em;">
+            ▸ ÉTAT DU SYSTÈME
+        </div>
+        <div class="stat-line">
+            <span>OBSTACLES:</span>
+            <span class="stat-value" id="obstacles-count">0</span>
+        </div>
+        <div class="stat-line" id="critical-stat">
+            <span>CRITIQUES:</span>
+            <span class="stat-value" style="color: #f00;" id="critical-count">0</span>
+            <div class="stat-tooltip" id="critical-tooltip"></div>
+        </div>
+        <div class="stat-line" id="important-stat">
+            <span>IMPORTANTS:</span>
+            <span class="stat-value" style="color: #ff0;" id="important-count">0</span>
+            <div class="stat-tooltip" id="important-tooltip"></div>
+        </div>
+        <div class="stat-line" id="moderate-stat">
+            <span>MODÉRÉS:</span>
+            <span class="stat-value" style="color: #0f0;" id="moderate-count">0</span>
+            <div class="stat-tooltip" id="moderate-tooltip"></div>
+        </div>
+        <div class="stat-line" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #0ff;">
+            <span>IMAGE ACTUELLE:</span>
+            <span class="stat-value" id="current-file" style="font-size: 0.8em;">---</span>
+        </div>
+    </div>
+
+    <div id="system-message"></div>
+
+    <div id="instructions">
+        <div style="font-size: 2em; margin-bottom: 30px;">◀</div>
+        <div>SÉLECTIONNEZ UNE IMAGE</div>
+        <div style="font-size: 0.6em; margin-top: 25px; opacity: 0.7;">
+            Choisissez une image pour lancer le scan holographique
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type='module' src='/assets/js/holographic_viewer.js'></script>
+
+</body>
+</html>
